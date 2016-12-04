@@ -7,15 +7,20 @@
 import client, server, socket, sys, threading
 from PySide import QtCore, QtGui
 
-# Much Wellner Help
+#Much Wellner Help
 
 class ServerController(threading.Thread, QtGui.QWidget):
-
+    """
+    Controller for the Server
+    connects with server_view
+    :inheritance threading.Thread:
+    :inheritance QtGui.QWidget:
+    """
     def __init__(self, parent=None):
-        '''
-
+        """
+        Constructor of ServerController class
         :param parent:
-        '''
+        """
         super().__init__(parent)
         threading.Thread.__init__(self)
 
@@ -32,10 +37,11 @@ class ServerController(threading.Thread, QtGui.QWidget):
 
 
     def run(self):
-        '''
-
-        :return:
-        '''
+        """
+        waits till someone is connected to the server
+        tells when someone is gone
+        :return None:
+        """
         try:
             while True:
                 print("Auf client warten...")

@@ -7,10 +7,24 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+"""
+@author: TEKIN Abdurrahim Burak
+@date: 2016-12-04
+-- Learning how Sockets work! --
+"""
+
 from PySide import QtCore, QtGui
 
 class Ui_Server(object):
+    """
+    server.ui file converted to server.py file via pyside
+    """
     def setupUi(self, Server):
+        """
+        gui-configuration
+        :param Server:
+        :return:
+        """
         Server.setObjectName("Server")
         Server.resize(458, 339)
         self.verticalLayout_2 = QtGui.QVBoxLayout(Server)
@@ -35,6 +49,11 @@ class Ui_Server(object):
         QtCore.QMetaObject.connectSlotsByName(Server)
 
     def retranslateUi(self, Server):
+        """
+        translating server-gui
+        :param Server:
+        :return:
+        """
         Server.setWindowTitle(QtGui.QApplication.translate("Server", "Server", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Server", "Online:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("Server", "Chat:", None, QtGui.QApplication.UnicodeUTF8))

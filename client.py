@@ -7,10 +7,24 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+"""
+@author: TEKIN Abdurrahim Burak
+@date: 2016-12-04
+-- Learning how Sockets work! --
+"""
+
 from PySide import QtCore, QtGui
 
 class Ui_Client(object):
+    """
+    server.ui file converted to server.py file via pyside
+    """
     def setupUi(self, Client):
+        """
+        gui-configuration
+        :param Client:
+        :return:
+        """
         Client.setObjectName("Client")
         Client.resize(459, 347)
         self.verticalLayout_2 = QtGui.QVBoxLayout(Client)
@@ -39,6 +53,11 @@ class Ui_Client(object):
         QtCore.QMetaObject.connectSlotsByName(Client)
 
     def retranslateUi(self, Client):
+        """
+        translating client-gui
+        :param Client:
+        :return:
+        """
         Client.setWindowTitle(QtGui.QApplication.translate("Client", "Client", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Client", "Message:", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton.setText(QtGui.QApplication.translate("Client", "Send", None, QtGui.QApplication.UnicodeUTF8))

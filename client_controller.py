@@ -7,10 +7,20 @@
 import client, server, socket, sys, threading
 from PySide import QtCore, QtGui
 
-# Much Wellner Help
+#Much Wellner Help
 
 class ClientController(threading.Thread, QtGui.QWidget):
+    """
+    Controller for the Client
+    connects with client_view
+    :inheritance threading.Thread:
+    :inheritance QtGui.QWidget:
+    """
     def __init__(self, parent=None):
+        """
+        Constructor of ClientController class
+        :param parent:
+        """
         super().__init__(parent)
         threading.Thread.__init__(self)
 
@@ -24,6 +34,11 @@ class ClientController(threading.Thread, QtGui.QWidget):
 
 
     def run(self):
+        """
+        connects to the server
+        tells server what the hostname and the port is
+        :return None:
+        """
         try:
             self.clientsocket.connect(("localhost", 50000))
 
@@ -39,10 +54,19 @@ class ClientController(threading.Thread, QtGui.QWidget):
 
 
     def button(self):
+        """
+        if button clicked -> message is sent
+        :return:
+        """
         self.view.pushButton.clicked.connect(lambda: self.setmsg("Client 1: " + self.view.input.text()))
         return self.msg
 
     def setmsg(self, msg):
+        """
+        message is given to chat
+        :param msg:
+        :return:
+        """
         self.msg += msg + "<br>"
         self.view.textBrowser.setText(self.msg)
         return self.msg
