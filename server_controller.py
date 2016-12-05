@@ -21,8 +21,9 @@ class ServerController(threading.Thread, QtGui.QWidget):
         Constructor of ServerController class
         :param parent:
         """
-        super().__init__(parent)
         threading.Thread.__init__(self)
+        QtGui.QWidget.__init__(self)
+
 
         self.view = server.Ui_Server()
         self.view.setupUi(self)
@@ -72,8 +73,8 @@ if __name__ == "__main__":
     t = ServerController()
     t.show()
 
+    t.daemon = True
     t.start()
 
-    t.join()
 
     sys.exit(app.exec_())

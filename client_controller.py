@@ -21,8 +21,8 @@ class ClientController(threading.Thread, QtGui.QWidget):
         Constructor of ClientController class
         :param parent:
         """
-        super().__init__(parent)
         threading.Thread.__init__(self)
+        QtGui.QWidget.__init__(self)
 
         self.view = client.Ui_Client()
         self.view.setupUi(self)
@@ -43,7 +43,7 @@ class ClientController(threading.Thread, QtGui.QWidget):
             self.clientsocket.connect(("localhost", 50000))
 
             while True:
-                self.clientsocket.send(self.button.encode())
+                self.clientsocket.send(self.button().encode())
 
                 data = self.clientsocket.recv(1024).decode()
 
@@ -58,7 +58,8 @@ class ClientController(threading.Thread, QtGui.QWidget):
         if button clicked -> message is sent
         :return:
         """
-        self.view.pushButton.clicked.connect(lambda: self.setmsg("Client 1: " + self.view.input.text()))
+        self.view.pushButton.clicked.connect(lambda: self.setmsg("Client 1: " + self.view.textEdit.text()))
+        #nie wieder hilfe von Wellner nehmen!!!
         return self.msg
 
     def setmsg(self, msg):
